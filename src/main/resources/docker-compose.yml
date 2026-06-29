@@ -1,0 +1,33 @@
+services:
+  postgres:
+    image: postgres:latest
+    container_name: flash_tick_postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: ticketing_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1111
+
+  redis:
+    image: redis:latest
+    container_name: flash_tick_redis
+    ports:
+      - "6379:6379"
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: flash_tick_rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+
+  mailhog:
+    image: mailhog/mailhog:latest
+    container_name: flash_tick_mailhog
+    ports:
+      - "1025:1025"
+      - "8025:8025"
