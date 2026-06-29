@@ -1,5 +1,4 @@
 ```
-markdown
 # High-Concurrency Ticketing API
 ```
 
